@@ -63,24 +63,26 @@ class EnumConstantExtension extends AbstractEnumExtension
                 }
 
                 // If found only one occurrence, then we know exactly which ENUM type
-                if (1 == count($occurrences)) {
+                if (1 === count($occurrences)) {
                     $enumClassName = array_pop($occurrences);
 
                     return constant($enumClassName.'::'.$enumConstant);
-                } elseif (1 < count($occurrences)) {
+                }
+
+                if (1 < count($occurrences)) {
                     throw new ConstantIsFoundInFewRegisteredEnumTypesException(sprintf(
                         'Constant "%s" is found in few registered ENUM types. You should manually set the appropriate one.',
                         $enumConstant
                     ));
-                } else {
-                    throw new ConstantIsNotFoundInAnyRegisteredEnumTypeException(sprintf(
-                        'Constant "%s" wasn\'t found in any registered ENUM type.',
-                        $enumConstant
-                    ));
                 }
+
+                throw new ConstantIsNotFoundInAnyRegisteredEnumTypeException(sprintf(
+                    'Constant "%s" wasn\'t found in any registered ENUM type.',
+                    $enumConstant
+                ));
             }
-        } else {
-            throw new NoRegisteredEnumTypesException('There are no registered ENUM types.');
         }
+
+        throw new NoRegisteredEnumTypesException('There are no registered ENUM types.');
     }
 }

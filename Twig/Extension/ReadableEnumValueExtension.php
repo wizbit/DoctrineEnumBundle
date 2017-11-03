@@ -27,12 +27,7 @@ class ReadableEnumValueExtension extends AbstractEnumExtension
      */
     public function getFilters()
     {
-        return [
-            new \Twig_SimpleFilter(
-                'readable_enum',
-                [$this, 'getReadableEnumValue']
-            ),
-        ];
+        return [new \Twig_SimpleFilter('readable_enum', [$this, 'getReadableEnumValue'])];
     }
 
     /**
@@ -49,9 +44,10 @@ class ReadableEnumValueExtension extends AbstractEnumExtension
     public function getReadableEnumValue($enumValue, $enumType = null)
     {
         if (!empty($this->registeredEnumTypes) && is_array($this->registeredEnumTypes)) {
-            if (is_null($enumValue)) {
+            if (null === $enumValue) {
                 return $enumValue;
             }
+
             // If ENUM type was set, e.g. {{ player.position|readable_enum('BasketballPositionType') }}
             if (!empty($enumType)) {
                 if (!isset($this->registeredEnumTypes[$enumType])) {
@@ -73,24 +69,26 @@ class ReadableEnumValueExtension extends AbstractEnumExtension
                 }
 
                 // If found only one occurrence, then we know exactly which ENUM type
-                if (1 == count($occurrences)) {
+                if (1 === count($occurrences)) {
                     $enumTypeClass = array_pop($occurrences);
 
                     return $enumTypeClass::getReadableValue($enumValue);
-                } elseif (1 < count($occurrences)) {
+                }
+
+                if (1 < count($occurrences)) {
                     throw new ValueIsFoundInFewRegisteredEnumTypesException(sprintf(
                         'Value "%s" is found in few registered ENUM types. You should manually set the appropriate one',
                         $enumValue
                     ));
-                } else {
-                    throw new ValueIsNotFoundInAnyRegisteredEnumTypeException(sprintf(
-                        'Value "%s" wasn\'t found in any registered ENUM type.',
-                        $enumValue
-                    ));
                 }
+
+                throw new ValueIsNotFoundInAnyRegisteredEnumTypeException(sprintf(
+                    'Value "%s" wasn\'t found in any registered ENUM type.',
+                    $enumValue
+                ));
             }
-        } else {
-            throw new NoRegisteredEnumTypesException('There are no registered ENUM types.');
         }
+
+        throw new NoRegisteredEnumTypesException('There are no registered ENUM types.');
     }
 }

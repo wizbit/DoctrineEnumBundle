@@ -19,9 +19,7 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
  */
 abstract class AbstractEnumExtension extends \Twig_Extension
 {
-    /**
-     * @var AbstractEnumType[]
-     */
+    /** @var AbstractEnumType[] */
     protected $registeredEnumTypes = [];
 
     /**

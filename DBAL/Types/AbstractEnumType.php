@@ -35,6 +35,7 @@ abstract class AbstractEnumType extends Type
 
     /**
      * @var array Array of ENUM Values, where ENUM values are keys and their readable versions are values
+     *
      * @static
      */
     protected static $choices = [];
