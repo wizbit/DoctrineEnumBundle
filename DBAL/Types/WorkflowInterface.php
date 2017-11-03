@@ -1,0 +1,22 @@
+<?php
+/*
+ * This file is part of the FreshDoctrineEnumBundle
+ *
+ * (c) Artem Genvald <genvaldartem@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Fresh\DoctrineEnumBundle\DBAL\Types;
+
+use Symfony\Component\Workflow\Transition;
+
+/**
+ * WorkflowInterface.
+ *
+ * @author Artem Genvald <genvaldartem@gmail.com>
+ */
+interface WorkflowInterface
+{
+}
