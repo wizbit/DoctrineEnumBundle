@@ -12,6 +12,8 @@ namespace Fresh\DoctrineEnumBundle;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Fresh\DoctrineEnumBundle\DependencyInjection\Compiler\WorkflowPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -31,6 +33,7 @@ class FreshDoctrineEnumBundle extends Bundle
         /** @var Registry $doctrine */
         $doctrine = $this->container->get('doctrine');
 
+        /** @var \Doctrine\DBAL\Connection $connection */
         foreach ($doctrine->getConnections() as $connection) {
             /** @var AbstractPlatform $databasePlatform */
             $databasePlatform = $connection->getDatabasePlatform();
@@ -39,5 +42,15 @@ class FreshDoctrineEnumBundle extends Bundle
                 $databasePlatform->registerDoctrineTypeMapping('enum', 'string');
             }
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new WorkflowPass());
     }
 }

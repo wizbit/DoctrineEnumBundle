@@ -10,8 +10,6 @@
 
 namespace Fresh\DoctrineEnumBundle\DBAL\Types;
 
-use Symfony\Component\Workflow\Transition;
-
 /**
  * WorkflowInterface.
  *

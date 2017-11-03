@@ -3,7 +3,7 @@
 Provides support of **ENUM type** for Doctrine in Symfony applications.
 
 [![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/fre5h/DoctrineEnumBundle.svg?style=flat-square)](https://scrutinizer-ci.com/g/fre5h/DoctrineEnumBundle/)
-[![Build Status](https://travis-ci.org/fre5h/DoctrineEnumBundle.svg?branch=master&style=flat-square)](https://travis-ci.org/fre5h/DoctrineEnumBundle)
+[![Build Status](https://img.shields.io/travis/fre5h/DoctrineEnumBundle.svg?branch=feature-workflow&style=flat-square)](https://travis-ci.org/fre5h/DoctrineEnumBundle)
 [![CodeCov](https://img.shields.io/codecov/c/github/fre5h/DoctrineEnumBundle.svg?style=flat-square)](https://codecov.io/github/fre5h/DoctrineEnumBundle)
 [![License](https://img.shields.io/packagist/l/fresh/doctrine-enum-bundle.svg?style=flat-square)](https://packagist.org/packages/fresh/doctrine-enum-bundle)
 [![Latest Stable Version](https://img.shields.io/packagist/v/fresh/doctrine-enum-bundle.svg?style=flat-square)](https://packagist.org/packages/fresh/doctrine-enum-bundle)
@@ -29,7 +29,8 @@ Provides support of **ENUM type** for Doctrine in Symfony applications.
 
 | Bundle Version (X.Y.Z) | PHP     | Symfony            | Doctrine DBAL | Comment        |
 |:----------------------:|:-------:|:------------------:|:-------------:|:---------------|
-| 6.0.*                  | >= 7.1  | >= 4.0             | >= 2.6        | *Coming soon*  |
+| 7.0.*                  | >= 7.1  | >= 4.0             | >= 2.6        | *Coming soon*  |
+| 6.0.*                  | >= 5.6  | 3.4                | >= 2.5        | *Coming soon*  |
 | 5.1.*                  | >= 5.6  | >= 3.2             | >= 2.5        | **Actual version** |
 | 4.8.*                  | >= 5.4  | >= 2.6, >= 3.0     | >= 2.2        | ~~Legacy version~~ |
 
